@@ -6,11 +6,13 @@
 
 
 .App {
+  min-width: 500px;
   padding: 1em;
   background: springgreen;
   color: midnightblue;
   font-family: 'Space Mono', monospace;
   .planet-card {
+    min-width: 400px;
     text-align: center;
     margin-bottom: 2em;
     padding: 2em;
@@ -34,6 +36,32 @@
       p {
         font-size: 1.5rem;
         font-weight: 900;
+      }
+    }
+  }
+  .button-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .btn {
+      background-color: greenyellow;
+      padding: 2em 3.6em;
+      border-radius: 20px;
+      outline: none;
+      box-shadow: 0 9px #999;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #7d7b5d;
+      &:hover,
+      &:focus {
+        background-color: #adff2fad;
+      }
+      &:active {
+        background-color: springgreen;
+        box-shadow: 0 5px #666;
+        color: white;
+        transform: translateY(4px);
       }
     }
   }

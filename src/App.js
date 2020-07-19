@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Planets from './Planets'
+import Button from './Button'
 
 class App extends React.Component {
   constructor() {
@@ -40,6 +41,10 @@ class App extends React.Component {
     return(
       <div className="App">
         {jsxPlanets}
+        <div className="button-container">
+          <Button name={'Prev'}/>
+          <Button name={'Next'}/>
+        </div>
       </div>
     )
   }
