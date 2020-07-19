@@ -32,12 +32,14 @@ class App extends React.Component {
 }
 
   render() {
-    console.log(this.state.prev)
-    console.log(this.state.next)
+
+    let jsxPlanets = this.state.data.map(element => (
+      <Planets key={element.name} stateData={this.state} planetData={element}></Planets>
+    ))
 
     return(
       <div className="App">
-        <Planets planetData={this.state.data}/>
+        {jsxPlanets}
       </div>
     )
   }
