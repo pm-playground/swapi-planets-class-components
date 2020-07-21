@@ -4,21 +4,29 @@
   box-sizing: border-box;
 }
 
+body {
+  background: url('./assets/background.jpeg');
+  color: white;
+}
 
 .App {
-  min-width: 500px;
+  min-width: 370px;
   padding: 1em;
-  background: springgreen;
-  color: midnightblue;
   font-family: 'Space Mono', monospace;
   .planet-card {
-    min-width: 400px;
+    margin: 0 auto;
+    max-width: 500px;
+    background-image: url('./assets/cardBackground.jpeg');
+    background-repeat: no-repeat;
+    opacity: .7;
     text-align: center;
     margin-bottom: 2em;
     padding: 2em;
-    border: 2px solid black;
+    border: 2px solid yellow;
     border-radius: 20px;
     h2 {
+      background: rgba(255, 255, 0, 0.308);
+      color: white;
       font-size: 2.5rem;
       font-weight: 900;
       margin-bottom: 1em;
@@ -29,13 +37,15 @@
       justify-content: space-between;
       margin-bottom: 1.5em;
       .tag {
-        font-size: 1.1rem;
-        font-weight: 400;
+        font-size: 1.3rem;
+        font-weight: 900;
+        color: yellow;
         font-family: monospace;
       }
       p {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 900;
+        text-shadow: crimson 0px 0px 10px;
       }
     }
   }
