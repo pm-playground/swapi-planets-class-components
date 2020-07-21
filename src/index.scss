@@ -56,12 +56,13 @@
       &:hover,
       &:focus {
         background-color: #adff2fad;
+        cursor: pointer;
       }
       &:active {
         background-color: springgreen;
         box-shadow: 0 5px #666;
         color: white;
-        transform: translateY(4px);
+        transform: translateY(5px);
       }
     }
   }

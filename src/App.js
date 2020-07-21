@@ -10,7 +10,8 @@ class App extends React.Component {
       data: [],
       isLoaded: false,
       next: '',
-      prev: ''
+      prev: '',
+      count: 1
     }
   }
 
@@ -32,6 +33,26 @@ class App extends React.Component {
     })
 }
 
+componentDidUpdate(prevProps, prevState) {
+  console.log('loading ....')
+  if(prevState.count !== this.state.count) {
+    axios.get(`https://swapi.dev/api/planets/?page=${this.state.count}`)
+    .then( res => {
+      this.setState(
+       {
+         data: res.data.results,
+         next: res.data.next,
+         prev: res.data.previous
+       }
+       
+      )
+       this.setState({
+         isLoaded: true
+       })
+     })
+  }
+}
+
   render() {
 
     let jsxPlanets = this.state.data.map(element => (
@@ -39,11 +60,12 @@ class App extends React.Component {
     ))
 
     return(
+      
       <div className="App">
         {jsxPlanets}
         <div className="button-container">
-          <Button name={'Prev'}/>
-          <Button name={'Next'}/>
+          <Button prev={this.state.prev} name={'Prev'}/>
+          <Button next={this.state.next} name={'Next'}/>
         </div>
       </div>
     )
