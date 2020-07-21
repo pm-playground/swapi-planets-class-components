@@ -95,7 +95,9 @@ componentDidUpdate(prevProps, prevState) {
     return(
       
       <div className="App">
-        {jsxPlanets}
+        <div className="planet-container">
+          {jsxPlanets}
+        </div>
         <div className="button-container">
           <Button hasPages={this.hasPrevPages()} pageDown={this.pageDown} prev={this.state.prev} name={'Prev'}/>
           <Button hasPages={this.hasNextPages()} pageUp={this.pageUp} next={this.state.next} name={'Next'}/>
