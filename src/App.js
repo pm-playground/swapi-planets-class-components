@@ -15,6 +15,23 @@ class App extends React.Component {
     }
   }
 
+
+pageUp = () => {
+  this.setState(
+    {
+      count: this.state.count + 1
+    }
+  )
+}
+
+pageDown = () => {
+  this.setState(
+    {
+      count: this.state.count - 1
+    }
+  )
+}
+
   componentDidMount() {
     console.log('loading ....')
     axios.get('https://swapi.dev/api/planets/')
@@ -32,6 +49,7 @@ class App extends React.Component {
       })
     })
 }
+
 
 componentDidUpdate(prevProps, prevState) {
   console.log('loading ....')
@@ -64,8 +82,8 @@ componentDidUpdate(prevProps, prevState) {
       <div className="App">
         {jsxPlanets}
         <div className="button-container">
-          <Button prev={this.state.prev} name={'Prev'}/>
-          <Button next={this.state.next} name={'Next'}/>
+          <Button pageDown={this.pageDown} prev={this.state.prev} name={'Prev'}/>
+          <Button pageUp={this.pageUp} next={this.state.next} name={'Next'}/>
         </div>
       </div>
     )

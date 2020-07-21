@@ -3,13 +3,13 @@ import React from 'react'
 const Button = (props) => {
   console.log(props.next)
   console.log(props.prev)
-
+  
   let handleClick = (e) => {
     if(e.target.innerHTML === "Next") {
-      console.log('this is next')
+      props.pageUp()
     }
     if(e.target.innerHTML === "Prev") {
-      console.log('this is prev')
+      props.pageDown()
     }
   }
 
