@@ -32,6 +32,20 @@ pageDown = () => {
   )
 }
 
+hasNextPages = () => {
+  if(!this.state.next) {
+    return true
+  } 
+    return false
+}
+
+hasPrevPages = () => {
+  if(!this.state.prev) {
+    return true
+  } 
+    return false
+}
+
   componentDidMount() {
     console.log('loading ....')
     axios.get('https://swapi.dev/api/planets/')
@@ -52,7 +66,6 @@ pageDown = () => {
 
 
 componentDidUpdate(prevProps, prevState) {
-  console.log('loading ....')
   if(prevState.count !== this.state.count) {
     axios.get(`https://swapi.dev/api/planets/?page=${this.state.count}`)
     .then( res => {
@@ -71,6 +84,8 @@ componentDidUpdate(prevProps, prevState) {
   }
 }
 
+
+
   render() {
 
     let jsxPlanets = this.state.data.map(element => (
@@ -82,8 +97,8 @@ componentDidUpdate(prevProps, prevState) {
       <div className="App">
         {jsxPlanets}
         <div className="button-container">
-          <Button pageDown={this.pageDown} prev={this.state.prev} name={'Prev'}/>
-          <Button pageUp={this.pageUp} next={this.state.next} name={'Next'}/>
+          <Button hasPages={this.hasPrevPages()} pageDown={this.pageDown} prev={this.state.prev} name={'Prev'}/>
+          <Button hasPages={this.hasNextPages()} pageUp={this.pageUp} next={this.state.next} name={'Next'}/>
         </div>
       </div>
     )

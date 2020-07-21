@@ -64,6 +64,15 @@
         color: white;
         transform: translateY(5px);
       }
+      &:disabled {
+        background: grey;
+        color: white;
+        cursor: not-allowed;
+        box-shadow: 0 5px #666;
+        transform: translateY(5px);
+      }
     }
   }
 }
+
+

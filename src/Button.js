@@ -14,7 +14,7 @@ const Button = (props) => {
   }
 
   return(
-  <button onClick={handleClick} className="btn">{props.name}</button>
+  <button disabled={props.hasPages} onClick={handleClick} className="btn">{props.name}</button>
   )
 }
 
