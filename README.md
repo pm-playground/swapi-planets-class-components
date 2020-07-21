@@ -2,7 +2,7 @@
 
 ### Development
 
-# 🔧 Link: https://swapiplanets.vercel.app/
+# 🔧 Link: https://swapiplanets.o0pmitev.vercel.app/
 
 
 
