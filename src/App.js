@@ -47,39 +47,37 @@ hasPrevPages = () => {
 }
 
   componentDidMount() {
-    console.log('loading ....')
+    this.setState({isLoaded: true})
     axios.get('https://swapi.dev/api/planets/')
    .then( res => {
      this.setState(
       {
         data: res.data.results,
         next: res.data.next,
-        prev: res.data.previous
+        prev: res.data.previous,
+        isLoaded: false
       }
       
      )
-      this.setState({
-        isLoaded: true
-      })
     })
 }
 
 
 componentDidUpdate(prevProps, prevState) {
   if(prevState.count !== this.state.count) {
+    this.setState({isLoaded: true})
     axios.get(`https://swapi.dev/api/planets/?page=${this.state.count}`)
     .then( res => {
       this.setState(
        {
          data: res.data.results,
          next: res.data.next,
-         prev: res.data.previous
+         prev: res.data.previous,
+         isLoaded: false
        }
        
       )
-       this.setState({
-         isLoaded: true
-       })
+
      })
   }
 }
@@ -93,7 +91,7 @@ componentDidUpdate(prevProps, prevState) {
     ))
 
     return(
-      
+      this.state.isLoaded ? <h1 style={{color:'white', textAlign: 'center'}}>LOADING....</h1> :
       <div className="App">
         <div className="planet-container">
           {jsxPlanets}
