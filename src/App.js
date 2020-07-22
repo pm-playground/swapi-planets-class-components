@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Planets from './Planets'
 import Button from './Button'
+import LoadingScreen from './LoadingScreen'
 
 class App extends React.Component {
   constructor() {
@@ -55,7 +56,7 @@ hasPrevPages = () => {
         data: res.data.results,
         next: res.data.next,
         prev: res.data.previous,
-        isLoaded: false
+        isLoaded: true
       }
       
      )
@@ -91,7 +92,7 @@ componentDidUpdate(prevProps, prevState) {
     ))
 
     return(
-      this.state.isLoaded ? <h1 style={{color:'white', textAlign: 'center'}}>LOADING....</h1> :
+      this.state.isLoaded ? <LoadingScreen /> :
       <div className="App">
         <div className="planet-container">
           {jsxPlanets}
