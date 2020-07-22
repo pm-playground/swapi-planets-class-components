@@ -121,3 +121,18 @@ body {
     }
   }
 }
+
+
+.loading-screen-container {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  .loading-image {
+    width: 50%;
+  }
+  .loading-text {
+    font-size: 1.5rem;
+    color: yellow;
+  }
+}
+

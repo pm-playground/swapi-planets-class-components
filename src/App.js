@@ -56,7 +56,7 @@ hasPrevPages = () => {
         data: res.data.results,
         next: res.data.next,
         prev: res.data.previous,
-        isLoaded: true
+        isLoaded: false
       }
       
      )
